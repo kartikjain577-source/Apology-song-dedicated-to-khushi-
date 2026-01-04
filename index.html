@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>11.11 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #ff7aa2);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+.hidden { display: none; }
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+}
+
+.yes-btn {
+  padding: 15px 50px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 50px;
+  background: white;
+  color: #ff4f87;
+  font-weight: bold;
+  cursor: pointer;
+  animation: shake 1.2s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+.song-box {
+  max-width: 700px;
+  background: rgba(255,255,255,0.18);
+  padding: 25px;
+  border-radius: 20px;
+  line-height: 1.7;
+  white-space: pre-line;
+  backdrop-filter: blur(6px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 22px;
+  animation: float 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="bg-music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+  <h1>So its finally 11.11 💖✨</h1>
+  <button class="yes-btn" onclick="goNext()">YES 💗</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page hidden" id="page2">
+  <div class="song-box">
+🎵 Bas Maan Jao 🎵
+
+Tum door gayi to lagta hai  
+Main toot sa gaya hu ❤️‍🩹  
+Tum paas ho to lagta hai  
+Sab kuch mera ho gaya ho 🤍  
+
+Aise na jao maan jao na 🥺  
+Dil ye maanta hi nahi  
+Tum bin jeena mushkil sa  
+Lagta hai har ek ghadi 😔  
+
+Bas maan jao bas maan jao 🙏  
+Mujhe aise chhod ke jao na  
+Tum khush ho to main khush hoon 🥹  
+Ye baat kabhi bhoolo na  
+
+Bas maan jao bas maan jao  
+Dil se dil ko jodo na  
+Don’t go please, don’t go please 🥺  
+Mujhe yun akela chhodo na  
+
+Tum mujhse jab rooth jaati ho 😞  
+Mera sab kuch chhoot sa jaata hai  
+Mera poora sa sansaar 🌍  
+Jaise mujhse hi rooth jaata hai  
+
+Tum paas ho to sukoon sa 🫶  
+Dil ke andar rehta hai  
+Tum door ho to har pal main 😣  
+Bechain sa reh jaata hoon  
+
+Bas ek mauka de do na 🤍  
+Main sab kuch theek kar dunga  
+Jo galtiyaan ho gayi mujhse  
+Un sab se seekh bhi lunga  
+
+Bas maan jao, bas maan jao 🥹  
+Ab wapas aa bhi jao na  
+Tum ho to sab kuch lagta hai ✨  
+Tum bin kuch bhi lagta na  
+Man bhi jao aise na jaoo🥹❤️  
+
+Don’t go please, stay with me ❤️  
+Main apna best de dunga  
+Bas ek baar bharosa kro 🤞  
+Main kabhi nahi chhodunga
+  </div>
+</div>
+
+<script>
+function goNext() {
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
+  document.getElementById("bgMusic").play();
+}
+
+function createHeart() {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💗";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.animationDuration = (4 + Math.random() * 3) + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 7000);
+}
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
